@@ -1,0 +1,11 @@
+prefix=/Users/rizwan/Desktop/Project/E2E ML/E2E-ML-PROJECT/venv
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+toolexeclibdir=${libdir}
+includedir=/Users/rizwan/Desktop/Project/E2E ML/E2E-ML-PROJECT/venv/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.4.2
+Libs: -L${toolexeclibdir} -lffi
+Cflags: -I${includedir}
