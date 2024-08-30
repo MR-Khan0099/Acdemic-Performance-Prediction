@@ -1,5 +1,5 @@
 import sys
-import logging
+from src.logger import logging
 import os
 
 
@@ -21,21 +21,23 @@ class CustomException(Exception):
         return self.error_message
     
 
+############# also log the all state of the error#####
+# # Global exception handler
+# def global_exception_handler(type, value, traceback):
+#     logging.error("Uncaught exception:", exc_info=(type, value, traceback))
 
-# Global exception handler
-def global_exception_handler(type, value, traceback):
-    logging.error("Uncaught exception:", exc_info=(type, value, traceback))
+# # Set the global exception hook
+# sys.excepthook = global_exception_handler
 
-# Set the global exception hook
-sys.excepthook = global_exception_handler
-
-# Example usage within the exception handler script
+# to check the exception log
+"""
 if __name__ == "__main__":
     try:
         a = 1 / 0
     except Exception as e:
+        logging.info("divde by 0")
         raise CustomException(e, sys)
-
+"""
 
 
 
