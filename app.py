@@ -2,7 +2,7 @@ from flask import Flask,request,render_template
 import numpy as np
 import pandas as pd
 
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler 
 from src.pipeline.predict_pipeline import CustomData,PredictPipeline
 
 application = Flask(__name__)
@@ -13,12 +13,12 @@ app = application
 
 @app.route('/')
 def index():
-    return render_template('E2E-ML-PROJECT/template/index.html') 
+    return render_template('index.html') 
 
 @app.route('/predictdata',methods=['GET','POST'])
 def predict_datapoint():
     if request.method=='GET':
-        return render_template('E2E-ML-PROJECT/template/home.html')
+        return render_template('home.html')
     else:
         data=CustomData(
             gender=request.form.get('gender'),
@@ -42,7 +42,10 @@ def predict_datapoint():
     
 
 if __name__=="__main__":
-    app.run(host="0.0.0.0")     
+    #app.run(port=5000)
+    app.run(host="0.0.0.0", port=5000,debug=True)    
+    
+
 
    
 
